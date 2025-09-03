@@ -26,7 +26,8 @@ def ping_request():
         print(f"Status code is : {response.status_code}")
         print(f"Website exact URL is : {response.url}")
         print(f"Content size is : {len(response.content)} bytes")
-        return True
+        return response.status_code, response.url
+    
     except requests.exceptions.RequestException as e:
         print(f"Error : Couldn't reach the website! ({e})")
         return user_input

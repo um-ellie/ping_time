@@ -3,7 +3,8 @@ import time
 
 def ping_timer(func):
     """
-    Decorator to measure the execution time of a function.
+    Decorator that measures and prints the execution time of the decorated function
+    in seconds and milliseconds.
     """
     def wrapper(*args, **kwargs):
         start_time = time.time()
@@ -20,7 +21,9 @@ def ping_timer(func):
 @ping_timer
 def ping_request():
     """
-    Function to ping a website and return its status code, URL, and content size.
+    Prompts the user for a website address, sends a GET request, and prints the status code,
+    resolved URL, and content size. Returns a tuple of (status_code, url).
+    If the request fails, prints an error and returns (None, url).
     """
     user_input = input("Enter a website address:").strip()
 
